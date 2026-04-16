@@ -1,0 +1,23 @@
+{
+  "name": "course-project-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SofiaKohut/course-project-playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SofiaKohut/course-project-playwright/issues"
+  },
+  "homepage": "https://github.com/SofiaKohut/course-project-playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0"
+  }
+}
