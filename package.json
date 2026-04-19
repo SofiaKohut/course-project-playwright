@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+  "test": "playwright test",
+  "test:login": "playwright test login.spec.ts"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SofiaKohut/course-project-playwright.git"

@@ -8,7 +8,8 @@ test('Verify login with valid credentials', async ({page})=> {
 
   await page.getByRole('button', { name: 'Login' }).click();
 
+  
   await expect(page).toHaveURL('https://practicesoftwaretesting.com/account');
-  await expect(page).toHaveTitle('My Account');
+  await expect(page.getByRole('heading', { name: 'My account' })).toBeVisible();
   await expect(page.getByText('Jane Doe')).toBeVisible();
 });

@@ -1,6 +1,8 @@
 # course-project-playwright
 
-Tests for Automation Typescriptcourse 
+Tests for Automation Typescript course 
+
+Login tests for (https://practicesoftwaretesting.com).
 
 ## Setup
 
