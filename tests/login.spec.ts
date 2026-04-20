@@ -10,6 +10,6 @@ test('Verify login with valid credentials', async ({page})=> {
 
 
   await expect(page).toHaveURL('https://practicesoftwaretesting.com/account');
-  await expect(page.getByText('My account')).toBeVisible();
+  await expect(page.getByText(/my account/i)).toBeVisible();
   await expect(page.getByText('Jane Doe')).toBeVisible();
 });
