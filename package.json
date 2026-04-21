@@ -1,0 +1,31 @@
+{
+  "name": "course-project-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint" : "npx eslint",
+    "test": "playwright test",
+    "test:login": "playwright test login.spec.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SofiaKohut/course-project-playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SofiaKohut/course-project-playwright/issues"
+  },
+  "homepage": "https://github.com/SofiaKohut/course-project-playwright#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0",
+    "eslint": "^10.2.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.58.2"
+  }
+}
