@@ -6,5 +6,14 @@ import tseslint from 'typescript-eslint';
 
 export default defineConfig(
   js.configs.recommended,
-  tseslint.configs.recommended,
+  tseslint.configs.recommendedTypeChecked,
+  {
+    languageOptions: {
+      parserOptions: {
+        projectService: {
+            allowDefaultProject: ["eslint.config.mjs"], 
+        }
+      },
+    },
+  },
 );
