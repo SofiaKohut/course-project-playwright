@@ -3,6 +3,7 @@
 import js from '@eslint/js';
 import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
+import playwright from 'eslint-plugin-playwright';
 
 export default defineConfig(
   js.configs.recommended,
@@ -14,6 +15,14 @@ export default defineConfig(
             allowDefaultProject: ["eslint.config.mjs"], 
         }
       },
+    },
+  },
+  {
+    files: ['tests/**'],
+    extends: [playwright.configs['flat/recommended']],
+    rules: {
+      // Customize Playwright rules
+      // ...
     },
   },
 );
