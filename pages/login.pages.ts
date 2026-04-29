@@ -8,11 +8,13 @@ export class LoginPage {
     passwordField: Locator;
     constructor (page : Page) {
         this.page = page;
-        this.emailField = this.page.getByLabel('Email address');
-        this.passwordField = this.page.locator('[data-test="password"]') ;
+        this.emailField = this.page.getByTestId('email');
+        this.passwordField = this.page.getByTestId('password');
 
     }
-
+   async navigate() {
+        await this.page.goto('/auth/login');
+    }
     async performLogin(email: string, password: string): Promise<void> {
         await this.emailField.fill(email);
         await this.passwordField.fill(password);
