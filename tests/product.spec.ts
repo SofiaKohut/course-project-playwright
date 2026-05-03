@@ -7,7 +7,7 @@ test('Verify user can view product details', async ({ page }) => {
   const productPage = new ProductPage(page);
 
   await homePage.navigate();
-  await page.getByText('Combination Pliers').click();
+  await homePage.getProductByName('Combination Pliers').click();
 
   await expect(page).toHaveURL(/product/);
   await expect(productPage.productName).toHaveText('Combination Pliers');

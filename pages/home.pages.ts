@@ -13,4 +13,8 @@ export class HomePage {
   async navigate(): Promise<void> {
     await this.page.goto('/');
   }
+
+  getProductByName(name: string) {
+    return this.page.getByText(name);
+  }
 }
