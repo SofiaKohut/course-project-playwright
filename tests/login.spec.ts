@@ -1,15 +1,16 @@
 import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pages/login.pages';
+import { AccountPage } from '../pages/account.pages';
 
-test('Verify login with valid credentials', async ({page})=> {
-    await page.goto('/auth/login');
+test('Verify login with valid credentials', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  const accountPage = new AccountPage(page);
 
-  await page.getByLabel('Email address').fill('customer@practicesoftwaretesting.com');
-  await page.locator('[data-test="password"]').fill('welcome01');
+  await loginPage.navigate();
 
-  await page.getByRole('button', { name: 'Login' }).click();
-
+  await loginPage.performLogin('customer@practicesoftwaretesting.com', 'welcome01');
 
   await expect(page).toHaveURL('https://practicesoftwaretesting.com/account');
-  await expect(page.locator('[data-test="page-title"]')).toBeVisible();
-  await expect(page.locator('[data-test="nav-menu"]')).toBeVisible();
+  await expect(accountPage.header.pageTitle).toBeVisible();
+  await expect(accountPage.header.navMenu).toBeVisible();
 });
