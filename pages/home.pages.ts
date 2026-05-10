@@ -18,6 +18,12 @@ export enum Other {
   ToolBelts = 'Tool Belts',
 }
 
+export enum SortOption {
+  NameAsc = 'name,asc',
+  NameDesc = 'name,desc',
+  PriceAsc = 'price,asc',
+  PriceDesc = 'price,desc',
+}
 export class HomePage {
   page: Page;
   header: HeaderFragment;
@@ -35,7 +41,7 @@ export class HomePage {
     return this.page.getByText(name);
   }
 
-  async sortBy(value: string) {
+  async sortBy(value: SortOption) {
   await this.page.getByTestId('sort').selectOption(value);
 }
 

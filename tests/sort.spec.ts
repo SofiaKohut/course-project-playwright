@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
-import { HomePage } from '../pages/home.pages';
+import { HomePage, SortOption } from '../pages/home.pages';
 
 const sortCases = [
-  { name: 'Name A-Z', option: 'name,asc', order: 'asc' },
-  { name: 'Name Z-A', option: 'name,desc', order: 'desc' },
-  { name: 'Price Low-High', option: 'price,asc', order: 'asc'},
-  { name: 'Price High-Low', option: 'price,desc', order: 'desc'}
+  { name: 'Name A-Z', option: SortOption.NameAsc, order: 'asc' },
+  { name: 'Name Z-A', option: SortOption.NameDesc, order: 'desc' },
+  { name: 'Price Low-High', option: SortOption.PriceAsc, order: 'asc' },
+  { name: 'Price High-Low', option: SortOption.PriceDesc, order: 'desc' },
 ];
 
 for (const { name, option, order } of sortCases) {
