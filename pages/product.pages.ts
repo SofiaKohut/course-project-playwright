@@ -6,6 +6,7 @@ export class ProductPage {
   unitPrice: Locator;
   addToCart: Locator;
   addToFavorites: Locator;
+  alertMessage: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -13,5 +14,6 @@ export class ProductPage {
     this.unitPrice = this.page.locator('[data-test="unit-price"]');
     this.addToCart = this.page.locator('[data-test="add-to-cart"]');
     this.addToFavorites = this.page.locator('[data-test="add-to-favorites"]');
+    this.alertMessage = page.locator('#toast-container');
   }
 }

@@ -2,6 +2,9 @@ import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/login.pages';
 import { AccountPage } from '../pages/account.pages';
 
+
+test.use({ storageState: 'playwright/.auth/user.json' });
+
 test('Verify login with valid credentials', async ({ page }) => {
   const loginPage = new LoginPage(page);
   const accountPage = new AccountPage(page);
