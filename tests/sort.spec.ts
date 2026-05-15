@@ -1,5 +1,5 @@
-import { test, expect } from '@playwright/test';
-import { HomePage, SortOption } from '../pages/home.pages';
+import { test, expect } from '../fixtures/test.fixtures';
+import { SortOption } from '../pages/home.pages';
 
 const sortCases = [
   { name: 'Name A-Z', option: SortOption.NameAsc, order: 'asc' },
@@ -9,12 +9,11 @@ const sortCases = [
 ];
 
 for (const { name, option, order } of sortCases) {
-  test(`Verify sorting by ${name}`, async ({ page }) => {
-    const homePage = new HomePage(page);
-    await homePage.navigate();
-    await homePage.sortBy(option);
+  test(`Verify sorting by ${name}`, async ({ app }) => {
+    await app.homePage.navigate();
+    await app.homePage.sortBy(option);
 
-    const names = await homePage.getProductNames();
+    const names = await app.homePage.getProductNames();
     const sorted = [...names].sort((a, b) =>
       order === 'asc' ? a.localeCompare(b) : b.localeCompare(a)
     );
