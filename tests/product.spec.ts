@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures/test.fixtures';
+import { test, expect } from '../fixtures/app.fixtures';
 
 test('Verify user can view product details', async ({ app }) => {
   await app.homePage.navigate();

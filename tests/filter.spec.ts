@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures/test.fixtures';
+import { test, expect } from '../fixtures/app.fixtures';
 import { PowerTools } from '../pages/home.pages';
 
 test('Verify user can filter products by category', async ({ app }) => {
