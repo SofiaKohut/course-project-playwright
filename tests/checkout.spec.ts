@@ -39,6 +39,5 @@ test('Logged in user can complete checkout', async ({ loggedInApp, page }) => {
   await loggedInApp.paymentPage.confirmPayment();
 
   // 7. Success check
-  await expect(page.getByText('Payment was successful'))
-  .toBeVisible();
+  await loggedInApp.paymentPage.verifySuccess();
 });

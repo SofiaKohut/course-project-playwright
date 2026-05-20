@@ -13,6 +13,7 @@ const test = base.extend<LoggedInFixture>({
       'customer@practicesoftwaretesting.com',
       'welcome01'
     );
+     await expect(page).toHaveURL('/account');
     await use(app);
   },
 });
