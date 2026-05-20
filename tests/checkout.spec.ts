@@ -25,7 +25,7 @@ test('Logged in user can complete checkout', async ({ loggedInApp, page }) => {
 
   // 4. Checkout
   await loggedInApp.cartPage.proceedToCheckout.click();
-  await page.getByRole('button', { name: 'Proceed to checkout' }).click();
+  await loggedInApp.cartPage.proceedToCheckout2.click();
   
   // 5. Billing 
   await loggedInApp.billingPage.fillBillingAddress();

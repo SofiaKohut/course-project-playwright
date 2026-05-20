@@ -12,7 +12,6 @@ export class BillingPage {
 
 
 async fillBillingAddress() {
-  await this.postalCode.waitFor({ state: 'visible' });
   await this.postalCode.fill('79000');
   await this.houseNumber.fill('12');
   await this.state.fill('Lviv');
