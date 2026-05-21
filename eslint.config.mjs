@@ -7,16 +7,7 @@ import playwright from 'eslint-plugin-playwright';
 
 export default defineConfig(
   js.configs.recommended,
-  tseslint.configs.recommendedTypeChecked,
-  {
-    languageOptions: {
-      parserOptions: {
-        projectService: {
-            allowDefaultProject: ["eslint.config.mjs"], 
-        }
-      },
-    },
-  },
+  tseslint.configs.recommended,
   {
     files: ['tests/**'],
     extends: [playwright.configs['flat/recommended']],

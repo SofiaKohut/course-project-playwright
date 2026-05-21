@@ -7,6 +7,7 @@ export class CartPage {
   cartRows: Locator;
   productTitle: Locator;
   proceedToCheckout: Locator;
+  proceedToCheckout2: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -15,5 +16,6 @@ export class CartPage {
     this.cartRows = page.locator('tbody tr');
     this.productTitle = page.locator('[data-test="product-title"]');
     this.proceedToCheckout = page.locator('[data-test="proceed-1"]');
+    this.proceedToCheckout2 = page.locator('[data-test="proceed-2"]');
   }
 }

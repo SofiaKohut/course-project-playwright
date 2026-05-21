@@ -1,15 +1,13 @@
-import { test, expect } from '@playwright/test';
-import { HomePage, PowerTools } from '../pages/home.pages';
+import { test, expect } from '../fixtures/app.fixtures';
+import { PowerTools } from '../pages/home.pages';
 
-test('Verify user can filter products by category', async ({ page }) => {
-  const homePage = new HomePage(page);
-  await homePage.navigate();
+test('Verify user can filter products by category', async ({ app }) => {
+  await app.homePage.navigate();
+  await app.homePage.filterByCategory(PowerTools.Sander);
 
-  await homePage.filterByCategory(PowerTools.Sander);
-  
-  await page.waitForLoadState('networkidle');
+  await app.homePage.page.waitForLoadState('networkidle');
 
-  const products = await homePage.getProductNames();
+  const products = await app.homePage.getProductNames();
   products.forEach(product => {
     expect(product).toContain('Sander');
   });
