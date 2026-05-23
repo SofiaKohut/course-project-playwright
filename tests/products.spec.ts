@@ -1,7 +1,13 @@
 import { test, expect } from '../fixtures/app.fixtures';
 
+interface MockProduct {
+  id: number;
+  name: string;
+  price: number;
+}
+
 test('Verify mocked products', async ({ page }) => {
-  const mockedProducts: any = [];
+  const mockedProducts: MockProduct[] = [];
   
   for (let i = 1; i <= 20; i++) {
     mockedProducts.push({
