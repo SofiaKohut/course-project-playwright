@@ -6,7 +6,7 @@ import { CartPage } from '../pages/cart.pages';
 
 
 
-test('Verify user can add product to cart', async ({ page }) => {
+test('@smoke Verify user can add product to cart', async ({ page }) => {
 const homePage = new HomePage(page);
 const productPage = new ProductPage(page);
 const cartPage = new CartPage(page);

@@ -1,7 +1,7 @@
 import { test, expect } from '../fixtures/app.fixtures';
 import { PowerTools } from '../pages/home.pages';
 
-test('Verify user can filter products by category', async ({ app }) => {
+test('@regression Verify user can filter products by category', async ({ app }) => {
   await app.homePage.navigate();
   await app.homePage.filterByCategory(PowerTools.Sander);
 

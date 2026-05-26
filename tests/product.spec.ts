@@ -1,6 +1,6 @@
 import { test, expect } from '../fixtures/app.fixtures';
 
-test('Verify user can view product details', async ({ app }) => {
+test('@smoke Verify user can view product details', async ({ app }) => {
   await app.homePage.navigate();
   await app.homePage.getProductByName('Combination Pliers').click();
 

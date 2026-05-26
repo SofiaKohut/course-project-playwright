@@ -1,6 +1,6 @@
 import { test, expect } from '../fixtures/loggedInApp';
 
-test('Logged in user can complete checkout', async ({ loggedInApp, page }) => {
+test('@smoke Logged in user can complete checkout', async ({ loggedInApp, page }) => {
 
   // 1. Open product
   await loggedInApp.homePage.navigate();
