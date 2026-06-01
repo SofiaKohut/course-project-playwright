@@ -12,11 +12,14 @@ export async function loginByApi(request: APIRequestContext, page: Page) {
   );
 
   const { access_token } = await response.json();
+   await page.context().addCookies([
+    {
+      name: 'auth_token',
+      value: access_token,
+      url: process.env.baseURL || 'https://practicesoftwaretesting.com',
+    },
+  ]);
   
-  await page.evaluate((token) => {
-    localStorage.setItem('auth-token', token);
-  }, access_token);
-
   await page.goto('/');
   await page.reload();
 }
