@@ -25,11 +25,15 @@ jobs:
           playwright-${{ runner.os }}-
     - name: Install Playwright Browsers
       if: steps.playwright-cache.outputs.cache-hit != 'true'
-      run: npx playwright install --with-deps chromium
+      run: npx playwright install --with-deps
     - name: Install system deps only
       if: steps.playwright-cache.outputs.cache-hit == 'true'
-      run: npx playwright install-deps chromium
+      run: npx playwright install-deps
     - name: Run Playwright tests
+      env:
+        baseURL: ${{ secrets.BASE_URL }}
+        userEmail: ${{ secrets.USER_EMAIL }}
+        userPassword: ${{ secrets.USER_PASSWORD }}
       run: npx playwright test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
