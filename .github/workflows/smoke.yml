@@ -32,4 +32,5 @@ jobs:
     - name: Run Smoke Tests
       env:
         baseURL: ${{ secrets.BASE_URL }}
-        user
+        userEmail: ${{ secrets.USER_EMAIL }}
+        userPassword: ${{ secrets.USER_PASSWORD }}

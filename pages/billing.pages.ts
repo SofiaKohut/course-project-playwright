@@ -15,7 +15,7 @@ async fillBillingAddress() {
   await this.page.waitForTimeout(3000);
   await this.postalCode.fill('79000');
   await this.houseNumber.fill('12');
-  await this.page.waitForTimeout(2000); 
+  await this.state.waitFor({ state: 'visible' }); 
   await this.state.fill('Lviv');
 }
 }
