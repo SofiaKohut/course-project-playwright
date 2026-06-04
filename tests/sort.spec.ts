@@ -9,7 +9,7 @@ const sortCases = [
 ];
 
 for (const { name, option, order } of sortCases) {
-  test(`Verify sorting by ${name}`, async ({ app }) => {
+  test(`@regression Verify sorting by ${name}`, async ({ app }) => {
     await app.homePage.navigate();
     await app.homePage.sortBy(option);
 

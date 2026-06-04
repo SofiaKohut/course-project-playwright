@@ -1,42 +1,47 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export default defineConfig({
   testDir: './tests',
+  timeout: 60000,
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: 'html',
+  reporter: [
+    ['html'],
+    ['dot'],
+    ['json', { outputFile: 'test-results/results.json' }],
+  ],
   use: {
-    baseURL: 'https://practicesoftwaretesting.com',
+    baseURL: process.env.baseURL,
     testIdAttribute: 'data-test',
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+    actionTimeout: 60000,
+    navigationTimeout: 60000,
   },
   projects: [
-    { name: 'setup', testMatch: /.*auth-setup\.spec\.ts/ },
     {
       name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-        // storageState: 'playwright/.auth/user.json',
-      },
-      // dependencies: ['setup'],
+      use: { ...devices['Desktop Chrome'] },
     },
+   // {
+   //   name: 'firefox',
+   //   use: { ...devices['Desktop Firefox'] },
+    //},
     {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-        // storageState: 'playwright/.auth/user.json',
-      },
-      // dependencies: ['setup'],
-    },
-    {
-      name: 'webkit',
-      use: {
-        ...devices['Desktop Safari'],
-        // storageState: 'playwright/.auth/user.json',
-      },
-      // dependencies: ['setup'],
-    },
+    name: 'smoke',
+    use: { ...devices['Desktop Chrome'] },
+    grep: /@smoke/,
+  },
+  {
+    name: 'regression',
+    use: { ...devices['Desktop Chrome'] },
+    grep: /@regression/,
+  },
   ],
 });

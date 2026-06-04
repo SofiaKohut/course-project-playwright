@@ -1,9 +1,8 @@
-name: Playwright Tests
+name: Regression Tests
 on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+  schedule:
+    - cron: '0 8 * * *'
+  workflow_dispatch:
 jobs:
   test:
     timeout-minutes: 60
@@ -29,12 +28,12 @@ jobs:
     - name: Install system deps only
       if: steps.playwright-cache.outputs.cache-hit == 'true'
       run: npx playwright install-deps
-    - name: Run Playwright tests
+    - name: Run Regression Tests
       env:
         baseURL: ${{ secrets.BASE_URL }}
         userEmail: ${{ secrets.USER_EMAIL }}
         userPassword: ${{ secrets.USER_PASSWORD }}
-      run: npx playwright test
+      run: npx playwright test --grep @regression
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:

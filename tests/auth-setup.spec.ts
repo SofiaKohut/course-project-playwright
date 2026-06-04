@@ -7,7 +7,10 @@ setup('Verify login with valid credentials', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
   await loginPage.navigate();
-  await loginPage.performLogin('customer@practicesoftwaretesting.com', 'welcome01');
+  await loginPage.performLogin(
+  process.env.userEmail || 'customer@practicesoftwaretesting.com',
+  process.env.userPassword || 'welcome01'
+);
   await expect(page).toHaveURL('https://practicesoftwaretesting.com/account');
 
   await page.context().storageState({ path: authFile });

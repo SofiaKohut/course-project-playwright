@@ -6,7 +6,7 @@ interface MockProduct {
   price: number;
 }
 
-test('Verify mocked products', async ({ page }) => {
+test('@regression Verify mocked products', async ({ page }) => {
   const mockedProducts: MockProduct[] = [];
   
   for (let i = 1; i <= 20; i++) {

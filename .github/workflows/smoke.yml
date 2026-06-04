@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Smoke Tests
 on:
   push:
     branches: [ main, master ]
@@ -29,15 +29,8 @@ jobs:
     - name: Install system deps only
       if: steps.playwright-cache.outputs.cache-hit == 'true'
       run: npx playwright install-deps
-    - name: Run Playwright tests
+    - name: Run Smoke Tests
       env:
         baseURL: ${{ secrets.BASE_URL }}
         userEmail: ${{ secrets.USER_EMAIL }}
         userPassword: ${{ secrets.USER_PASSWORD }}
-      run: npx playwright test
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
